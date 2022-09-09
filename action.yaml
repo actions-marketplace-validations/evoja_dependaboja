@@ -3,7 +3,7 @@ description: Merge dependabot PRs to aggregated branches and sync the aggregated
 
 inputs:
   merge_type:
-    description: 'Way of merge to use for syncing: merge/rebase/squah. Default is "rebase"'
+    description: 'Way of merge to use for syncing: merge/rebase/squash. Default is "rebase"'
     required: false
     default: rebase
   committer_name:
@@ -13,11 +13,11 @@ inputs:
     required: false
     default: --
   disabled_pr_targets:
-    description: Comma separated list of branches wich are not allowed to be a PR target for auto merge. Default is 'master,main'
+    description: Comma separated list of branches which are not allowed to be a PR target for auto merge. Default is 'master,main'
     required: false
     default: master,main
   sync_with:
-    description: Comma separated list of branches which should be merged to agregated dependency branches automatically. Default is 'master,main'
+    description: Comma separated list of branches which should be merged to aggregated dependency branches automatically. Default is 'master,main'
     required: false
     default: master,main
   fetch_depth:
@@ -45,8 +45,8 @@ runs:
 #################################
 
 # In this part of action we check if the workflow was triggered by a PR:
-# If "YES" we invoke some checkings and try to merge.
-# Otherwise we just skip all steps of this part.
+# If "YES" we invoke some checks and try to merge.
+# Otherwise, we just skip all steps of this part.
 
     - name: Run on PR
       if: ${{ github.event_name == 'pull_request' }}
@@ -105,7 +105,7 @@ runs:
 
 # In this part of action we check if the workflow was triggered by a push event:
 # If "YES" we invoke some checkings and try to sync updates with target branches.
-# Otherwise we just skip all steps of this part.
+# Otherwise, we just skip all steps of this part.
 
     - name: Run on push
       if: ${{ github.event_name == 'push' }}
@@ -125,9 +125,9 @@ runs:
           exit 1
         fi
 
-# Check that we want to sync with the the branch that has triggered the event.
+# Check that we want to sync with the branch that has triggered the event.
 # For instance, by default we want to sync with "master" or "main".
-# Puth to any other branch would be ignored.
+# Put to any other branch would be ignored.
 
     - name: Is it a branch to sync?
       id: shouldsync
@@ -144,7 +144,7 @@ runs:
           fi
         done
 
-    # Well, we have figured out that it's not a branch that we want to sycn with.
+    # Well, we have figured out that it's not a branch that we want to sync with.
     # Report about it to logs and skip all further steps.
     - name: Report skip branch
       if: ${{github.event_name == 'push' && steps.shouldsync.outputs.shouldsync != 1}}
