@@ -1,9 +1,9 @@
 # Dependaboja
 
-This is an action that lets you to merge dependabot PRs to aggregated branches
+This is an action that lets you merge dependabot PRs to aggregated branches
 automatically and keep these aggregated branches in sync with master.
 By using this approach you won't need to pass hundreds dependency PRs through
-your workflow. Instead you can work with smaller amount of branches.
+your workflow. Instead, you can work with smaller amount of branches.
 
 ![a visualization of the approach](./diagram.png)
 
@@ -12,10 +12,10 @@ your workflow. Instead you can work with smaller amount of branches.
 ### Prepare your dependabot configuration
 
 Dependaboja's approach suggests to aggregate all dependency updates
-in a small amount of branches depending on importancy, frequency and possible effect.
+in a small amount of branches depending on importance, frequency and possible effect.
 
-For instance, in the following configuratin we aggregate all dependencies in
-two branches: major and minor. Minor updates are expected to be frequent but
+For instance, in the following configuration we aggregate all dependencies in
+two branches: major and minor. Minor updates are expected to be frequent, but
 they might be easier to update and test, while major might require more attention.
 
 **.github/dependabot.yml**
@@ -86,14 +86,14 @@ Author of merge commits during syncing. Default is `dependaboja<-->`.
 
 #### disabled_pr_targets
 
-Comma separated list of branches wich are not allowed to be a PR target for auto merge. Default is `master,main`.
+Comma separated list of branches which are not allowed to be a PR target for auto merge. Default is `master,main`.
 
 If the workflow gets triggered by a PR with a disabled target, it ignores the PR and exits with success status.
 
 #### sync_with
-Comma separated list of branches which should be merged to agregated dependency branches automatically. Default is `master,main`.
+Comma separated list of branches which should be merged to aggregated dependency branches automatically. Default is `master,main`.
 
-If the workflow gets triggerd by a push to another branch, it ignroes the push
+If the workflow gets triggered by a push to another branch, it ignores the push
 and exists with success status.
 
 #### fetch_depth
