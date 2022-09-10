@@ -15,6 +15,9 @@
 
 
 ## v0.0
+#### [Unreleased][unreleased]
+##### Added
+Create deps branches if they do not exist
 
 #### [0.0.2] - [2022-01-26][c-0.0.2]
 ##### Fixed
