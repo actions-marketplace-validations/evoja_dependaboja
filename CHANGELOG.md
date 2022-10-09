@@ -16,9 +16,6 @@
 
 ## v0.0
 #### [0.0.3] - [2022-10-09][c-0.0.3]
-##### Fixed
-Support multiple configurations to the same branch
-
 ##### Added
 Create deps branches if they do not exist
 
