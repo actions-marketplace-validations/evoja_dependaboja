@@ -119,7 +119,7 @@ for you.
 Having target branches in repository in important because otherwise
 dependabot becomes stuck with errors on missed branches.
 
-##### First run explanation
+## First run explanation
 
 If there are no target branches it only will be created on first run.
 This is caused by GitHub action script configuration.
